@@ -6,7 +6,7 @@ const { name } = Astro.props as Props
 ---
 
 <picture>
-  <img src={`svg/${name}.svg`} width='32' height='32' loading='lazy' />
+  <img src={`svg/${name}.svg`} width='32' height='32' loading='lazy' alt={`${name} icon`} />
 </picture>
 
 <style lang='scss'>

@@ -1,0 +1,59 @@
+<dialog>
+  <form>
+    <h3>Contact me</h3>
+    <div>
+      <label>Email</label>
+      <input autofocus required type='email' />
+    </div>
+    <div>
+      <label>Message</label>
+      <textarea required cols='30' rows='4'></textarea>
+    </div>
+  </form>
+</dialog>
+
+<script>
+  const dialog = document.querySelector('dialog') as any
+  dialog?.addEventListener('click', onClick)
+
+  function onClick(e: Event) {
+    if (e.target === dialog) dialog?.close()
+  }
+</script>
+
+<style lang='scss'>
+  dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 0.2rem;
+    border: none;
+    padding: 0;
+  }
+
+  h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    padding: 3rem;
+  }
+
+  input,
+  textarea {
+    font: inherit;
+    font-size: 0.9rem;
+    border-radius: 0.2rem;
+    border: 1px solid gray;
+    padding: 0.2rem;
+  }
+
+  label {
+    display: block;
+  }
+</style>

@@ -1,0 +1,38 @@
+---
+export interface Props {
+  name: 'figma' | 'sketch' | 'adobe_xd'
+}
+const { name } = Astro.props as Props
+---
+
+<picture>
+  <img src={`svg/${name}.svg`} width='32' height='32' loading='lazy' />
+</picture>
+
+<style lang='scss'>
+  picture {
+    position: absolute;
+    width: 4rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:first-of-type {
+      top: 200px;
+      left: 50px;
+    }
+
+    &:nth-of-type(2) {
+      top: 150px;
+      right: 50px;
+    }
+
+    &:nth-of-type(3) {
+      bottom: 150px;
+      right: 50px;
+    }
+  }
+</style>

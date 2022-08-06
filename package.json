@@ -1,0 +1,33 @@
+{
+  "name": "@example/basics",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "devDependencies": {
+    "@astrojs/react": "^0.4.2",
+    "@types/react-dom": "^18.0.6",
+    "@typescript-eslint/parser": "^5.32.0",
+    "astro": "^1.0.0-rc.4",
+    "eslint": "^8.21.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-astro": "^0.16.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.4",
+    "eslint-plugin-promise": "^6.0.0",
+    "prettier": "^2.7.1",
+    "prettier-plugin-astro": "^0.3.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "dependencies": {
+    "@fontsource/poppins": "^4.5.8",
+    "astro-icon": "^0.7.3",
+    "sass": "^1.54.2"
+  }
+}

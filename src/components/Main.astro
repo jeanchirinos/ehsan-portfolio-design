@@ -1,0 +1,25 @@
+---
+import Picture from './Picture.astro'
+import Presentation from './Presentation.astro'
+import Stats from './Stats.astro'
+---
+
+<main>
+  <Presentation />
+  <Stats />
+  <Picture />
+</main>
+
+<style lang='scss'>
+  main {
+    display: grid;
+    max-width: 1440px;
+
+    @media (min-width: 1024px) {
+      grid-template: auto auto / repeat(2, 1fr);
+      grid-template-areas:
+        'presentation picture'
+        'stats picture';
+    }
+  }
+</style>

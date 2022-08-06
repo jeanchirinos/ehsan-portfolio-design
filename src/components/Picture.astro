@@ -1,0 +1,46 @@
+---
+import Icon from './Icon.astro'
+---
+
+<section>
+  <div>
+    <p>
+      Create Your site in <strong>Figma</strong>
+      <br />
+      <strong>Sketch</strong> or <strong>XD</strong>
+    </p>
+    <img src='img/PersonalPhoto.webp' alt='Person' width='449' height='555' loading='lazy' />
+
+    <Icon name='figma' />
+    <Icon name='sketch' />
+    <Icon name='adobe_xd' />
+  </div>
+</section>
+
+<style lang='scss'>
+  section {
+    background-color: #ded1c0;
+    padding-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    font-size: 1.5rem;
+
+    @media (min-width: 1024px) {
+      grid-area: picture;
+    }
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10rem;
+    position: relative;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+</style>

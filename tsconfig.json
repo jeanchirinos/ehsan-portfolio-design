@@ -1,0 +1,22 @@
+// Ejemplo: tsconfig.json básico para sus proyectos de Astro
+{
+  "compilerOptions": {
+    // Habilita top-level await y otras funciones modernas de ESM.
+    "target": "ESNext",
+    "module": "ESNext",
+    // Habilita la resolución de módulos al estilo de node, para cosas como importaciones de paquetes npm.
+    "moduleResolution": "node",
+    // Habilita las importaciones de JSON.
+    "resolveJsonModule": true,
+    // Habilita una transpilación más estricta para obtener mejores resultados.
+    "isolatedModules": true,
+    // Agrega definiciones de tipo para nuestro motor de ejecución Vite.
+    "types": [
+      "vite/client"
+    ],
+    // Indica a TypeScript dónde guardar los archivos compilados
+    "outDir": "./dist",
+    "strict": true,
+    "jsx": "react-jsx",
+  }
+}

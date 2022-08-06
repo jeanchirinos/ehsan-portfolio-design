@@ -1,0 +1,68 @@
+---
+import Button from './Button'
+---
+
+<header class='centered'>
+  <h1>Richard</h1>
+  <nav>
+    <a href='/'>Home</a>
+    <a href='/'>Works</a>
+    <a href='/'>About</a>
+    <a href='/'>Projects</a>
+    <a href='/'>Services</a>
+  </nav>
+  <Button client:visible>Let's chat</Button>
+</header>
+
+<style lang='scss'>
+  .algo {
+  }
+
+  div {
+  }
+
+  header {
+    height: 6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #dddddd;
+  }
+
+  h1::after {
+    content: '';
+    display: inline-block;
+    width: 0.5rem;
+    aspect-ratio: 1;
+    background-color: var(--primary);
+    border-radius: 50%;
+    margin-left: 0.2rem;
+  }
+
+  nav {
+    display: none;
+
+    @media (min-width: 896px) {
+      display: flex;
+      column-gap: 1.5rem;
+    }
+  }
+
+  a:nth-child(2)::after {
+    content: '';
+    display: inline-block;
+    width: 0.3rem;
+    aspect-ratio: 1;
+    border-right: 2px solid var(--primary);
+    border-bottom: 2px solid var(--primary);
+    margin-left: 0.4rem;
+    transform: rotate(45deg);
+  }
+
+  button {
+  }
+
+  header :global(button) {
+    background-color: transparent;
+  }
+</style>

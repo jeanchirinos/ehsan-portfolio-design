@@ -1,0 +1,99 @@
+---
+import { Icon } from 'astro-icon'
+import Button from './Button'
+---
+
+<section class='centered'>
+  <div class='greeting'>
+    <h2>
+      Hi! I Am
+      <br />
+      Richard Brian
+    </h2>
+    <span>UI/UX</span>
+  </div>
+  <p>
+    Designing user interfaces for over <b>7 years</b>
+    <br /> as a product designer
+  </p>
+
+  <div class='links'>
+    <Button client:visible>Hire Me</Button>
+    <a href='/'>
+      <strong>Projects</strong>
+      <Icon name='akar-icons:arrow-up-right' width={16} />
+    </a>
+  </div>
+
+  <div class='stats'>
+    <div>
+      <b>+84</b>
+      <p>Clientes on work <br /> worldwide</p>
+    </div>
+    <div></div>
+    <div>
+      <b>572</b>
+      <p>Project Done</p>
+    </div>
+    <div>
+      <b>Contact</b>
+      <p>heloo@richardbrian.com</p>
+    </div>
+  </div>
+</section>
+
+<style lang='scss'>
+  section {
+    padding-top: 6rem;
+
+    & > * {
+      margin-bottom: 2.5rem;
+    }
+
+    @media (min-width: 1024px) {
+      grid-area: presentation;
+    }
+  }
+
+  h2 {
+    font-size: 3rem;
+    line-height: 140%;
+  }
+
+  .greeting {
+    position: relative;
+    display: inline-block;
+  }
+
+  section :global(button) {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: white;
+  }
+
+  span {
+    background-color: #5562ff;
+    padding: 0.3rem 2rem;
+    border-radius: 2rem;
+    color: white;
+    position: absolute;
+    top: 20px;
+    right: 0px;
+  }
+
+  .links {
+    display: inline-flex;
+    align-items: center;
+    column-gap: 2rem;
+  }
+
+  .stats {
+    display: grid;
+    grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+    gap: 1.5rem;
+
+    b {
+      font-size: 1.5rem;
+    }
+  }
+</style>

@@ -2,25 +2,19 @@
 import Button from './Button'
 ---
 
-<header class='centered'>
+<header>
   <h1>Richard</h1>
   <nav>
-    <a href='/'>Home</a>
-    <a href='/'>Works</a>
-    <a href='/'>About</a>
-    <a href='/'>Projects</a>
-    <a href='/'>Services</a>
+    <a href='#home'>Home</a>
+    <a href='#works'>Works</a>
+    <a href='#about'>About</a>
+    <a href='#projects'>Projects</a>
+    <a href='#services'>Services</a>
   </nav>
   <Button client:visible>Let's chat</Button>
 </header>
 
 <style lang='scss'>
-  .algo {
-  }
-
-  div {
-  }
-
   header {
     height: 6rem;
     display: flex;
@@ -57,9 +51,6 @@ import Button from './Button'
     border-bottom: 2px solid var(--primary);
     margin-left: 0.4rem;
     transform: rotate(45deg);
-  }
-
-  button {
   }
 
   header :global(button) {

@@ -14,11 +14,14 @@ module.exports = {
       extends: ['standard', 'eslint-config-prettier'],
       globals: {
         JSX: 'readonly'
+      },
+      rules: {
+        'no-unused-vars': 'warn'
       }
     },
     {
       files: ['*.astro'],
-      extends: ['plugin:astro/all'],
+      extends: ['plugin:astro/recommended'],
       parser: 'astro-eslint-parser',
       parserOptions: {
         parser: '@typescript-eslint/parser',

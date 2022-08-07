@@ -2,22 +2,61 @@
   <form>
     <h3>Contact me 👋</h3>
     <div>
-      <label>Email</label>
-      <input autofocus required type='email' />
+      <input required type='email' name='email' />
+      <label id='email' for='i_email'>Email</label>
     </div>
     <div>
-      <label>Message</label>
-      <textarea required cols='30' rows='4'></textarea>
+      <textarea required cols='30' rows='4' name='message'></textarea>
+      <label id='message'>Message</label>
     </div>
+
+    <button disabled>Send</button>
   </form>
 </dialog>
 
 <script>
-  const dialog = document.querySelector('dialog') as any
-  dialog?.addEventListener('click', onClick)
+  const $ = (selector: string) => document.querySelector(selector)
 
-  function onClick(e: Event) {
-    if (e.target === dialog) dialog?.close()
+  // DIALOG
+
+  const dialog = $('dialog') as any
+  // dialog?.addEventListener('click', handleClick)
+  // function handleClick(e: Event) {
+  //   if (e.target === dialog) dialog?.close()
+  // }
+
+  dialog?.addEventListener('mousedown', onMouseDown)
+  dialog?.addEventListener('mouseup', onMouseUp)
+
+  let mouseDownOnDialog = false
+
+  function onMouseDown(e: Event) {
+    if (e.target === dialog) {
+      mouseDownOnDialog = true
+    } else {
+      mouseDownOnDialog = false
+    }
+  }
+
+  function onMouseUp() {
+    if (mouseDownOnDialog) dialog?.close()
+  }
+
+  // INPUT / TEXTAREA
+
+  const input = $('input')
+  const textarea = $('textarea')
+
+  input?.addEventListener('focus', handleBlurFocus)
+  input?.addEventListener('blur', handleBlurFocus)
+
+  textarea?.addEventListener('focus', handleBlurFocus)
+  textarea?.addEventListener('blur', handleBlurFocus)
+
+  function handleBlurFocus(e: any) {
+    const label = $(`#${e.target.name}`)
+    if (e.target.value) return
+    label?.classList.toggle('selected')
   }
 </script>
 
@@ -34,13 +73,13 @@
 
   h3 {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 
   form {
     display: flex;
     flex-direction: column;
-    row-gap: 1rem;
+    row-gap: 2rem;
     padding: 3rem;
   }
 
@@ -50,11 +89,39 @@
     font-size: 0.9rem;
     border-radius: 0.2rem;
     border: 1px solid gray;
-    padding: 0.2rem;
+    padding-block: 1rem 0.5rem;
+    padding-inline: 0.5rem;
     max-width: 100%;
   }
 
+  input {
+    width: 100%;
+
+    &:-webkit-autofill + label {
+      background: linear-gradient(to top, #e8f0fe 50%, white 50%);
+    }
+  }
+
+  textarea {
+    resize: none;
+  }
+
   label {
-    display: block;
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    color: gray;
+    padding-inline: 0.3rem;
+    background-color: white;
+    transition: transform 0.2s ease-in-out;
+    pointer-events: none;
+
+    &.selected {
+      transform: translateY(-20px);
+    }
+  }
+
+  div {
+    position: relative;
   }
 </style>

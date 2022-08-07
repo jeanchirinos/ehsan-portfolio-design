@@ -2,7 +2,7 @@
 import Icon from './Icon.astro'
 ---
 
-<section>
+<section class='centered'>
   <div>
     <p>
       Create Your site in <strong>Figma</strong>
@@ -21,9 +21,6 @@ import Icon from './Icon.astro'
   section {
     background-color: #ded1c0;
     padding-top: 5rem;
-    display: flex;
-    justify-content: center;
-    align-items: end;
     font-size: 1.5rem;
 
     @media (min-width: 1024px) {
@@ -36,6 +33,8 @@ import Icon from './Icon.astro'
     flex-direction: column;
     align-items: center;
     row-gap: 10rem;
+    margin-inline: auto;
+    width: fit-content;
     position: relative;
   }
 

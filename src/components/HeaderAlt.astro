@@ -1,19 +1,26 @@
 ---
 import Button from './Button'
-import Dropdown from './Dropdown.astro'
+import MenuAlt from './MenuAlt.astro'
 ---
 
 <header>
   <h1>Richard</h1>
   <nav>
     <a href='#home' class='nav-item'>Home</a>
-    <Dropdown />
+    <div>
+      <button class='nav-item' id='works'>Works</button>
+      <MenuAlt />
+    </div>
     <a class='nav-item' href='#about'>About</a>
     <a class='nav-item' href='#projects'>Projects</a>
     <a class='nav-item' href='#services'>Services</a>
   </nav>
   <Button client:visible>Let's chat</Button>
 </header>
+
+<script>
+  import './HeaderAlt'
+</script>
 
 <style lang='scss'>
   header {
@@ -28,7 +35,6 @@ import Dropdown from './Dropdown.astro'
     content: '';
     display: inline-block;
     width: 0.5rem;
-    aspect-ratio: 1;
     background-color: var(--primary);
     border-radius: 50%;
     margin-left: 0.2rem;
@@ -42,7 +48,7 @@ import Dropdown from './Dropdown.astro'
     }
   }
 
-  nav :global(.nav-item) {
+  .nav-item {
     padding: 0.25rem 0.8rem;
     transition: color 0.2s ease-in-out;
 
@@ -51,7 +57,33 @@ import Dropdown from './Dropdown.astro'
     }
   }
 
-  header :global(.btn) {
-    border: 1px solid black;
+  button {
+    &::after {
+      content: '';
+      display: inline-block;
+      width: 0.3rem;
+      aspect-ratio: 1;
+      border-right: 2px solid var(--primary);
+      border-bottom: 2px solid var(--primary);
+      margin-left: 0.4rem;
+      transform: rotate(45deg);
+      transition: transform 0.2s ease-in-out;
+    }
+
+    &.selected {
+      pointer-events: none;
+
+      &::after {
+        transform: rotate(-135deg);
+      }
+    }
+  }
+
+  header :global(button) {
+    background-color: transparent;
+  }
+
+  div {
+    position: relative;
   }
 </style>

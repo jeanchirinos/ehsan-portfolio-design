@@ -3,6 +3,9 @@
     "node_modules": true,
     ".npmrc": true,
     "README.md": true,
+    "src/components/HeaderAlt.astro": true,
+    "src/components/HeaderAlt.ts": true,
+    "src/components/MenuAlt.astro": true,
   },
   "eslint.validate": [
     "javascript",

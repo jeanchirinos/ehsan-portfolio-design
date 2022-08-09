@@ -5,8 +5,8 @@ import react from '@astrojs/react'
 export default defineConfig({
   vite: {
     ssr: {
-      external: ['svgo'],
-    },
+      external: ['svgo']
+    }
   },
-  integrations: [react()],
+  integrations: [react()]
 })

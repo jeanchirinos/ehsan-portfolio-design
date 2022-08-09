@@ -10,54 +10,12 @@
       <label id='message'>Message</label>
     </div>
 
-    <button disabled>Send</button>
+    <button class='btn' disabled>Send</button>
   </form>
 </dialog>
 
 <script>
-  const $ = (selector: string) => document.querySelector(selector)
-
-  // DIALOG
-
-  const dialog = $('dialog') as any
-  // dialog?.addEventListener('click', handleClick)
-  // function handleClick(e: Event) {
-  //   if (e.target === dialog) dialog?.close()
-  // }
-
-  dialog?.addEventListener('mousedown', onMouseDown)
-  dialog?.addEventListener('mouseup', onMouseUp)
-
-  let mouseDownOnDialog = false
-
-  function onMouseDown(e: Event) {
-    if (e.target === dialog) {
-      mouseDownOnDialog = true
-    } else {
-      mouseDownOnDialog = false
-    }
-  }
-
-  function onMouseUp() {
-    if (mouseDownOnDialog) dialog?.close()
-  }
-
-  // INPUT / TEXTAREA
-
-  const input = $('input')
-  const textarea = $('textarea')
-
-  input?.addEventListener('focus', handleBlurFocus)
-  input?.addEventListener('blur', handleBlurFocus)
-
-  textarea?.addEventListener('focus', handleBlurFocus)
-  textarea?.addEventListener('blur', handleBlurFocus)
-
-  function handleBlurFocus(e: any) {
-    const label = $(`#${e.target.name}`)
-    if (e.target.value) return
-    label?.classList.toggle('selected')
-  }
+  import './Dialog'
 </script>
 
 <style lang='scss'>
@@ -74,6 +32,10 @@
   h3 {
     text-align: center;
     margin-bottom: 1rem;
+  }
+
+  div {
+    position: relative;
   }
 
   form {
@@ -119,9 +81,5 @@
     &.selected {
       transform: translateY(-20px);
     }
-  }
-
-  div {
-    position: relative;
   }
 </style>

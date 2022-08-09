@@ -1,15 +1,18 @@
+import { $ } from 'functions'
+
 interface Props {
   children: JSX.Element
 }
 
 export default function Button({ children }: Props) {
   function handleClick() {
-    document.querySelector('dialog')?.showModal()
+    const dialog = $('dialog') as HTMLDialogElement
+    dialog.showModal()
   }
 
   return (
-    <>
-      <button onClick={handleClick}>{children}</button>
-    </>
+    <button className='btn' onClick={handleClick}>
+      {children}
+    </button>
   )
 }

@@ -1,6 +1,7 @@
 ---
 import Button from './Button'
 import Dropdown from './Dropdown.astro'
+import MobileMenu from './MobileMenu.astro'
 ---
 
 <header>
@@ -13,9 +14,13 @@ import Dropdown from './Dropdown.astro'
     <a class='nav-item' href='#services'>Services</a>
   </nav>
   <Button client:visible>Let's chat</Button>
+  <MobileMenu />
 </header>
 
 <style lang='scss'>
+  // @import '../scss/mixins';
+  @use '../scss/mixins' as *;
+
   header {
     height: 6rem;
     display: flex;
@@ -35,11 +40,7 @@ import Dropdown from './Dropdown.astro'
   }
 
   nav {
-    display: none;
-
-    @media (min-width: 896px) {
-      display: flex;
-    }
+    @include showOnDesktop(flex);
   }
 
   nav :global(.nav-item) {
@@ -53,5 +54,6 @@ import Dropdown from './Dropdown.astro'
 
   header :global(.btn) {
     border: 1px solid black;
+    @include showOnDesktop();
   }
 </style>

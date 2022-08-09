@@ -1,0 +1,15 @@
+@mixin showOnMobile($value: block) {
+  display: $value;
+
+  @media (min-width: 896px) {
+    display: none;
+  }
+}
+
+@mixin showOnDesktop($value: block) {
+  display: none;
+
+  @media (min-width: 896px) {
+    display: $value;
+  }
+}

@@ -1,0 +1,13 @@
+---
+import Icon from 'astro-icon'
+---
+
+<aside><button class='menu-mobile'><Icon name='mdi:menu' size={32} /></button></aside>
+
+<style lang='scss'>
+  @use '../scss/mixins' as *;
+
+  aside {
+    @include showOnMobile();
+  }
+</style>

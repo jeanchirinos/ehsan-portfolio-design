@@ -21,6 +21,8 @@
 </section>
 
 <style lang='scss'>
+  @use '../scss/mixins' as *;
+
   section {
     background-color: #262626;
     color: white;
@@ -37,10 +39,19 @@
     }
   }
 
-  button {
-    background-color: #ffd100;
-    border-color: transparent;
-    color: black;
+  .btn {
+    // --accent: #ffd100;
+    // background-color: var(--accent);
+    // border-color: var(--accent);
+    // color: black;
+    // transition: background-color 0.2s ease-in-out;
+
+    // &:hover {
+    //   background-color: transparent;
+    //   color: var(--accent);
+    // }
+
+    @include btnHover(#ffd100);
   }
 
   h3 {

@@ -2,12 +2,111 @@
 import Icon from 'astro-icon'
 ---
 
-<aside><button class='menu-mobile'><Icon name='mdi:menu' size={32} /></button></aside>
+<button id='mobile-menu'><Icon name='mdi:menu' size={32} /></button>
+<nav id='mobile-nav'>
+  <a class='with-padding wrapper2 item' href='#'>Home</a>
+  <div class='wrapper2'>
+    <button class='with-padding hasChildren item'>Works</button>
+    <div class='children'>
+      <a href='#' class=' child'>Work 1</a>
+      <a href='#' class=' child'>Work 2</a>
+    </div>
+  </div>
+  <a class='with-padding wrapper2 item' href='#'>About</a>
+  <a class='with-padding wrapper2 item' href='#'>Projects</a>
+  <a class='with-padding wrapper2 item' href='#'>Services</a>
+</nav>
+
+<script>
+  import './MobileMenu'
+</script>
 
 <style lang='scss'>
   @use '../scss/mixins' as *;
 
-  aside {
-    @include showOnMobile();
+  #mobile-menu {
+    @include showOnMobile($mediaSize: 668px);
+  }
+
+  nav {
+    background-color: white;
+    position: fixed;
+    top: 6rem;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    width: 100%;
+    height: calc(100vh - 6rem);
+    z-index: 9;
+    transition: opacity 0.2s ease-in-out;
+
+    padding-top: 2rem;
+    color: gray;
+    display: flex;
+    flex-direction: column;
+    width: calc(100vw - 10px);
+
+    &.opened {
+      opacity: 1;
+      pointer-events: initial;
+    }
+
+    @include showOnMobile($mediaSize: 668px);
+  }
+
+  .wrapper2 {
+    border-bottom: 1px solid #f0f0f0;
+    overflow: hidden;
+  }
+
+  .children {
+    display: flex;
+    flex-direction: column;
+    height: 0px;
+    transition: all 0.2s ease-in-out;
+
+    &.show {
+      height: 82px;
+    }
+  }
+
+  // nav {
+  //   padding-block: 2rem;
+  //   color: gray;
+  //   display: flex;
+  //   flex-direction: column;
+  //   width: calc(100vw - 10px);
+  // }
+
+  .child {
+    margin-left: 2rem;
+    padding-block: 0.5rem;
+  }
+
+  .item {
+    padding-block: 1.2rem;
+  }
+
+  .hasChildren {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 0.3rem;
+      aspect-ratio: 1;
+      border-right: 2px solid var(--primary);
+      border-bottom: 2px solid var(--primary);
+      margin-left: 0.4rem;
+      transform: rotate(45deg);
+      transition: transform 0.2s ease-in-out;
+    }
+  }
+
+  a {
+    display: block;
   }
 </style>

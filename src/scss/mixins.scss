@@ -1,15 +1,27 @@
-@mixin showOnMobile($value: block) {
-  display: $value;
+@mixin showOnMobile($displayValue: block, $mediaSize: 896px) {
+  display: $displayValue;
 
-  @media (min-width: 896px) {
+  @media (min-width: $mediaSize) {
     display: none;
   }
 }
 
-@mixin showOnDesktop($value: block) {
+@mixin showOnDesktop($displayValue: block, $mediaSize: 896px) {
   display: none;
 
-  @media (min-width: 896px) {
-    display: $value;
+  @media (min-width: $mediaSize) {
+    display: $displayValue;
+  }
+}
+
+@mixin btnHover($accent, $textColor: black) {
+  background-color: $accent;
+  border-color: $accent;
+  color: $textColor;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: transparent;
+    color: $accent;
   }
 }

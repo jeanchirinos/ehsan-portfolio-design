@@ -5,7 +5,7 @@ import MobileMenu from './MobileMenu.astro'
 ---
 
 <header>
-  <h1>Richard</h1>
+  <a href='/'><h1>Richard</h1></a>
   <nav>
     <a href='#home' class='nav-item'>Home</a>
     <Dropdown />
@@ -18,8 +18,8 @@ import MobileMenu from './MobileMenu.astro'
 </header>
 
 <style lang='scss'>
-  // @import '../scss/mixins';
-  @use '../scss/mixins' as *;
+  @import '../scss/mixins';
+  // @use '../scss/mixins' as *;
 
   header {
     height: 6rem;
@@ -40,7 +40,7 @@ import MobileMenu from './MobileMenu.astro'
   }
 
   nav {
-    @include showOnDesktop(flex);
+    @include showOnDesktop(flex, 668px);
   }
 
   nav :global(.nav-item) {
@@ -53,7 +53,14 @@ import MobileMenu from './MobileMenu.astro'
   }
 
   header :global(.btn) {
+    @include showOnDesktop;
+
     border: 1px solid black;
-    @include showOnDesktop();
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover {
+      background-color: black;
+      color: white;
+    }
   }
 </style>

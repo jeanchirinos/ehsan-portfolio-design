@@ -24,11 +24,15 @@
   @use '../scss/mixins' as *;
 
   section {
-    background-color: #262626;
+    --color: #262626;
+    background-color: var(--color);
     color: white;
-    padding-block: 2rem;
+    padding-block: 2.5rem;
     display: flex;
+    // justify-content: space-between;
     column-gap: 1.5rem;
+    box-shadow: 0 0 0 100vmax var(--color);
+    clip-path: inset(0 0 0 -100vmax);
 
     & > * {
       flex-grow: 1;

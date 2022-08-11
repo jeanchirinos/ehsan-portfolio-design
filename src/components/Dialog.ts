@@ -9,15 +9,16 @@ dialog.addEventListener('mouseup', onMouseUp)
 let mouseDownOnDialog = false
 
 function onMouseDown(e: Event) {
-  if (e.target === dialog) {
-    mouseDownOnDialog = true
-  } else {
-    mouseDownOnDialog = false
-  }
+  mouseDownOnDialog = e.target === e.currentTarget
 }
 
 function onMouseUp() {
-  if (mouseDownOnDialog) dialog.classList.remove('open')
+  if (!mouseDownOnDialog) return
+
+  const form = $('form') as HTMLFormElement
+  Array.from(form.elements).forEach(element => element.setAttribute('disabled', 'true'))
+
+  dialog.classList.remove('open')
 }
 
 // function handleClick(e: Event) {
@@ -25,23 +26,3 @@ function onMouseUp() {
 // }
 
 // dialog.addEventListener('click', handleClick)
-
-//? INPUT / TEXTAREA
-
-const input = $('input')
-const textarea = $('textarea')
-
-input?.addEventListener('focus', handleBlurFocus)
-input?.addEventListener('blur', handleBlurFocus)
-
-textarea?.addEventListener('focus', handleBlurFocus)
-textarea?.addEventListener('blur', handleBlurFocus)
-
-function handleBlurFocus(e: Event) {
-  const target = e.target as HTMLInputElement | HTMLTextAreaElement
-
-  const label = $(`#${target.name}`)
-
-  if (target.value) return
-  label?.classList.toggle('selected')
-}

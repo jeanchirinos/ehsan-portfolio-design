@@ -15,8 +15,8 @@
   article {
     position: relative;
 
-    &:hover,
-    &:focus-within {
+    // &:focus-within,
+    &:hover {
       .wrapper {
         opacity: 1;
         transform: translateY(0px);
@@ -82,8 +82,7 @@
 
     transition: background-color 0.2s, color 0.2s;
 
-    &:hover,
-    &:focus-within {
+    &:hover {
       color: var(--primary);
       background-color: #fafafa;
     }

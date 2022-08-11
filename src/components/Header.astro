@@ -18,8 +18,8 @@ import MobileMenu from './MobileMenu.astro'
 </header>
 
 <style lang='scss'>
-  @import '../scss/mixins';
-  // @use '../scss/mixins' as *;
+  // @import '../scss/mixins';
+  @use '../scss/mixins' as *;
 
   header {
     height: 6rem;
@@ -34,8 +34,8 @@ import MobileMenu from './MobileMenu.astro'
     display: inline-block;
     width: 0.5rem;
     aspect-ratio: 1;
-    background-color: var(--primary);
     border-radius: 50%;
+    background-color: var(--primary);
     margin-left: 0.2rem;
   }
 

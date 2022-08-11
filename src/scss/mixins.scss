@@ -18,10 +18,14 @@
   background-color: $accent;
   border-color: $accent;
   color: $textColor;
-  transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, transform 0.2s linear;
 
   &:hover {
     background-color: transparent;
     color: $accent;
+  }
+
+  &:active {
+    transform: scale(0.9);
   }
 }

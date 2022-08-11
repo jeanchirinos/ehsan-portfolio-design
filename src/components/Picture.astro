@@ -9,7 +9,7 @@ import Isotype from './Isotype.astro'
       <br />
       <strong>Sketch</strong> or <strong>XD</strong>
     </p>
-    <img src='img/PersonalPhoto.webp' alt='Person' width='449' height='555' loading='lazy' />
+    <img src='img/PersonalPhoto.webp' alt='Person' width='443' height='553' loading='lazy' />
 
     <Isotype name='figma' />
     <Isotype name='sketch' />
@@ -19,9 +19,12 @@ import Isotype from './Isotype.astro'
 
 <style lang='scss'>
   section {
-    background-color: #ded1c0;
+    --color: #ded1c0;
+    background-color: var(--color);
     padding-top: 5rem;
     font-size: 1.5rem;
+    box-shadow: 0 0 0 100vmax var(--color);
+    clip-path: inset(0 -100vmax 0 0);
 
     @media (min-width: 1024px) {
       grid-area: picture;
@@ -29,10 +32,12 @@ import Isotype from './Isotype.astro'
   }
 
   div {
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    row-gap: 10rem;
+    justify-content: space-between;
+    row-gap: 8rem;
     margin-inline: auto;
     width: fit-content;
     position: relative;

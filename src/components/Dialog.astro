@@ -1,13 +1,13 @@
-<dialog>
+<dialog class='with-padding'>
   <form>
     <h3>Contact me 👋</h3>
     <div>
-      <input type='email' name='email' required />
-      <label id='email'>Email</label>
+      <input type='email' name='email' disabled placeholder=' ' required id='i-email' />
+      <label for='i-email'>Email</label>
     </div>
     <div>
-      <textarea name='message' cols='30' rows='4' required></textarea>
-      <label id='message'>Message</label>
+      <textarea cols='30' rows='4' disabled placeholder=' ' required id='ta-message'></textarea>
+      <label for='ta-message'>Message</label>
     </div>
 
     <button class='btn' disabled>Send</button>
@@ -53,7 +53,6 @@
     background-color: white;
     border-radius: 0.5rem;
     transform: scale(0.5);
-    max-width: 90%;
     transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
   }
 
@@ -75,10 +74,11 @@
     left: 0.5rem;
     transition: transform 0.2s ease-in-out;
     pointer-events: none;
+    transform: translateY(-20px);
+  }
 
-    &.selected {
-      transform: translateY(-20px);
-    }
+  :placeholder-shown:not(:focus) + label {
+    transform: translateY(0px);
   }
 
   input,

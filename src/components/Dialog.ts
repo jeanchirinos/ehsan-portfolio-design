@@ -15,7 +15,7 @@ function onMouseDown(e: Event) {
 function onMouseUp() {
   if (!mouseDownOnDialog) return
 
-  const form = $('form') as HTMLFormElement
+  const form = $('#contact-form') as HTMLFormElement
   Array.from(form.elements).forEach(element => element.setAttribute('disabled', 'true'))
 
   dialog.classList.remove('open')

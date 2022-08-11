@@ -2,11 +2,11 @@
   <form>
     <h3>Contact me 👋</h3>
     <div>
-      <input required type='email' name='email' />
-      <label id='email' for='i_email'>Email</label>
+      <input type='email' name='email' required />
+      <label id='email'>Email</label>
     </div>
     <div>
-      <textarea required cols='30' rows='4' name='message'></textarea>
+      <textarea name='message' cols='30' rows='4' required></textarea>
       <label id='message'>Message</label>
     </div>
 
@@ -20,13 +20,41 @@
 
 <style lang='scss'>
   dialog {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 0.5rem;
     border: none;
     padding: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: background-color 0.2s ease-in-out, opacity 0.2s ease-in-out;
+
+    &.open {
+      opacity: 1;
+      pointer-events: auto;
+
+      form {
+        transform: scale(1);
+      }
+    }
+  }
+
+  form {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    transform: scale(0.5);
+    max-width: 90%;
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
   }
 
   h3 {
@@ -38,48 +66,37 @@
     position: relative;
   }
 
-  form {
-    display: flex;
-    flex-direction: column;
-    row-gap: 2rem;
-    padding: 3rem;
-  }
-
-  input,
-  textarea {
-    font: inherit;
-    font-size: 0.9rem;
-    border-radius: 0.2rem;
-    border: 1px solid gray;
-    padding-block: 1rem 0.5rem;
-    padding-inline: 0.5rem;
-    max-width: 100%;
-  }
-
-  input {
-    width: 100%;
-
-    &:-webkit-autofill + label {
-      background: linear-gradient(to top, #e8f0fe 50%, white 50%);
-    }
-  }
-
-  textarea {
-    resize: none;
-  }
-
   label {
+    background-color: white;
+    color: gray;
+    padding-inline: 0.3rem;
     position: absolute;
     top: 0.5rem;
     left: 0.5rem;
-    color: gray;
-    padding-inline: 0.3rem;
-    background-color: white;
     transition: transform 0.2s ease-in-out;
     pointer-events: none;
 
     &.selected {
       transform: translateY(-20px);
     }
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    font: inherit;
+    font-size: 0.9rem;
+    border-radius: 0.2rem;
+    border: 1px solid gray;
+    padding-block: 1rem 0.5rem;
+    padding-inline: 0.5rem;
+  }
+
+  input:-webkit-autofill + label {
+    background: linear-gradient(to top, #e8f0fe 50%, white 50%);
+  }
+
+  textarea {
+    resize: none;
   }
 </style>

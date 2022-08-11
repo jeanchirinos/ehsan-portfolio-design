@@ -1,6 +1,6 @@
 import { $ } from 'functions'
 
-//? DIALOG
+// //? DIALOG
 const dialog = $('dialog') as HTMLDialogElement
 
 dialog.addEventListener('mousedown', onMouseDown)
@@ -17,10 +17,17 @@ function onMouseDown(e: Event) {
 }
 
 function onMouseUp() {
-  if (mouseDownOnDialog) dialog.close()
+  if (mouseDownOnDialog) dialog.classList.remove('open')
 }
 
+// function handleClick(e: Event) {
+//   if (e.target === dialog) dialog.classList.remove('open')
+// }
+
+// dialog.addEventListener('click', handleClick)
+
 //? INPUT / TEXTAREA
+
 const input = $('input')
 const textarea = $('textarea')
 

@@ -6,8 +6,7 @@ interface Props {
 
 export default function Button({ children }: Props) {
   function handleClick() {
-    const dialog = $('dialog') as HTMLDialogElement
-    dialog.showModal()
+    $('dialog')?.classList.add('open')
   }
 
   return (

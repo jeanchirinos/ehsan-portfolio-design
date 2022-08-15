@@ -9,14 +9,20 @@ import Isotype from './Isotype.astro'
       <br />
       <strong>Sketch</strong> or <strong>XD</strong>
     </p>
-    <img src='img/PersonalPhoto.webp' alt='Person' width='443' height='553' loading='lazy' />
+    <img src='img/PersonalPhoto.webp' alt='Person' width='443' height='563' loading='lazy' />
 
     <Isotype name='figma' />
     <Isotype name='sketch' />
     <Isotype name='adobe_xd' />
 
     <form id='news-form'>
-      <input id='i-news_email' type='email' placeholder='Suscribe my Newsletter' name='email' />
+      <input
+        id='i-news_email'
+        type='email'
+        placeholder='Suscribe my Newsletter'
+        name='email'
+        required
+      />
       <button>🡢</button>
     </form>
   </div>

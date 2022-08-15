@@ -1,17 +1,16 @@
 <dialog class='with-padding'>
-  <form id='contact-form'>
+  <form>
     <h3>Contact me 👋</h3>
     <div>
-      <input type='email' name='email' disabled placeholder=' ' required id='contact-email' />
+      <input type='email' name='email' placeholder=' ' required id='contact-email' />
       <label for='contact-email'>Email</label>
     </div>
     <div>
-      <textarea cols='30' rows='4' disabled placeholder=' ' required id='contact-message'
-      ></textarea>
+      <textarea cols='30' rows='4' placeholder=' ' required id='contact-message'></textarea>
       <label for='contact-message'>Message</label>
     </div>
 
-    <button class='btn' disabled>Send</button>
+    <button class='btn'>Send</button>
   </form>
 </dialog>
 
@@ -20,6 +19,8 @@
 </script>
 
 <style lang='scss'>
+  @use '../scss/mixins' as *;
+
   dialog {
     border: none;
     padding: 0;
@@ -32,13 +33,12 @@
     height: 100vh;
     top: 0;
     left: 0;
-    opacity: 0;
-    pointer-events: none;
-    transition: background-color 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    @include visibility(hidden);
+    transition: background-color 0.2s ease-in-out, opacity 0.2s ease-in-out,
+      visibility 0.2s ease-in-out;
 
     &.open {
-      opacity: 1;
-      pointer-events: auto;
+      @include visibility(visible);
 
       form {
         transform: scale(1);

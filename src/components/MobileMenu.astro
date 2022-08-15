@@ -33,13 +33,12 @@ import Icon from 'astro-icon'
     position: fixed;
     top: 6rem;
     left: 0;
-    opacity: 0;
-    pointer-events: none;
+    // opacity: 0;
+    // pointer-events: none;
     width: 100%;
     height: calc(100vh - 6rem);
     z-index: 9;
-    transition: opacity 0.2s ease-in-out;
-
+    @include visibility(hidden);
     padding-top: 2rem;
     color: gray;
     display: flex;
@@ -47,8 +46,7 @@ import Icon from 'astro-icon'
     width: calc(100vw - 10px);
 
     &.opened {
-      opacity: 1;
-      pointer-events: initial;
+      @include visibility(visible);
     }
 
     @include showOnMobile($mediaSize: 668px);
@@ -69,14 +67,6 @@ import Icon from 'astro-icon'
       height: 82px;
     }
   }
-
-  // nav {
-  //   padding-block: 2rem;
-  //   color: gray;
-  //   display: flex;
-  //   flex-direction: column;
-  //   width: calc(100vw - 10px);
-  // }
 
   .child {
     margin-left: 2rem;

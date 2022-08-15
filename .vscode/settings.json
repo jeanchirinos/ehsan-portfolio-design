@@ -1,6 +1,6 @@
 {
   "files.exclude": {
-    "node_modules": true,
+    "node_modules": false,
     ".npmrc": true,
     "README.md": true,
     "src/components/HeaderAlt.astro": true,
@@ -9,12 +9,12 @@
     ".vscode/extensions.json": true,
     ".vscode/launch.json": true,
     "public/manifest.json": true,
-    ".eslintrc.js": true,
-    ".gitignore": true,
-    ".prettierrc": true,
+    ".eslintrc.js": false,
+    ".gitignore": false,
+    ".prettierrc": false,
     "astro.config.mjs": true,
-    "package.json": true,
-    "tsconfig.json": true,
+    "package.json": false,
+    "tsconfig.json": false,
   },
   "eslint.validate": [
     "javascript",

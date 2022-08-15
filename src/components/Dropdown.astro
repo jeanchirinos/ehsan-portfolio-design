@@ -19,8 +19,8 @@
     &:hover {
       .wrapper {
         opacity: 1;
+        visibility: visible;
         transform: translateY(0px);
-        pointer-events: initial;
       }
 
       button {
@@ -49,9 +49,9 @@
     position: absolute;
     padding-top: 1rem;
     opacity: 0;
-    pointer-events: none;
+    visibility: hidden;
     transform: translateY(15px);
-    transition: transform 0.2s, opacity 0.2s;
+    transition: transform 0.2s, opacity 0.2s, visibility 0.2s;
     z-index: 9;
   }
 
